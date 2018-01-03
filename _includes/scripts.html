@@ -23,7 +23,10 @@ function unfold_about() {
    $("#about_btn1").click();
 }
 
-setTimeout(unfold_about, 1000);
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+} else {
+    setTimeout(unfold_about, 1000);
+}
 </script>
 
 {% if page.comments != false %}{% include disqus_comments.html %}{% endif %}
