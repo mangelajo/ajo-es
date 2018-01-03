@@ -1,27 +1,28 @@
-title:            Site Title
-description:      Describe your website here.
-disqus_shortname: 
+title:            Miguel Angel Ajo
+description:      Technology, OpenStack, Blockchain.
+disqus_shortname: ajos-blog
 reading_time:     true
-words_per_minute: 200
+words_per_minute: 150
 # Your site's domain goes here (eg: https://mmistakes.github.io, http://yourdomain.com, etc)
 # When testing locally leave blank or use http://localhost:4000
-url:
+url: #https://ajo.es
+
 
 # Owner/author information
 owner:
-  name:           Your Name
-  avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good sentence or two should suffice."
-  email:          you@email.com
+  name:           Miguel Angel Ajo
+  avatar:         avatar_ajo.jpg
+  bio:            "Network virtualizer, OpenStack coder, Electronics designer. Learning parent. Novice musician, photographer and woodworker."
+  email:          
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
-  facebook:       
-  github:         
-  stackexchange:  
-  linkedin:       
-  instagram:      
-  flickr:         
-  tumblr:         
+  twitter: mangel_ajo
+  facebook: mangelajo
+  github: mangelajo
+  stackexchange: 
+  linkedin: 
+  instagram: mangel_ajo/
+  flickr: 
+  tumblr: 
   # google plus id, include the '+', eg +mmistakes
   google_plus:
 
@@ -35,7 +36,7 @@ google_verify:
 bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    Europe/Madrid
 future:      false  # publish future dated posts --  true, false (default) 
 highlighter: rouge
 markdown:    kramdown
@@ -65,6 +66,7 @@ kramdown:
 include: 
   - .htaccess
 exclude: 
+  - vendor
   - "*.less"
   - "*.sublime-project"
   - "*.sublime-workspace"

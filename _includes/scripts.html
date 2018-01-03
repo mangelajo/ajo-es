@@ -10,10 +10,20 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '{{ site.google_analytics }}', 'auto');  
+  ga('create', '{{ site.google_analytics }}', 'auto');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 </script>
 {% endif %}
+
+<!-- vanity hack -->
+<script>
+function unfold_about() {
+   $("#about_btn0").click();
+   $("#about_btn1").click();
+}
+
+setTimeout(unfold_about, 1000);
+</script>
 
 {% if page.comments != false %}{% include disqus_comments.html %}{% endif %}
