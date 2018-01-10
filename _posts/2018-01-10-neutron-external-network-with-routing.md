@@ -10,24 +10,24 @@ In this blog post I will explain how to connect private tenant networks to
 an external network without the use of NAT or DNAT (floating ips) via
 a neutron router.
 
-With the following configuration you will have routers that don't do NAT
-on ingress or egress connections. You won't be able to use floating ips
-too, at least in the explained configuration, you could add a second external
-network and a gateway port, plus some static routes to let the router steer
-traffic over each network.
+> With the following configuration you will have routers that don't do NAT
+> on ingress or egress connections. You won't be able to use floating ips
+> too, at least in the explained configuration, you could add a second external
+> network and a gateway port, plus some static routes to let the router steer
+> traffic over each network.
 
 This can be done, with just one limitation, tenant networks connected in
 such topology cannot have overlapping ips. And also, the upstream router(s)
-must be informed about the internal networks so they can add router themselves
+must be informed about the internal networks so they can add routes themselves
 to those networks. That can be done manually, or automatically by periodically
 talking to the openstack API (checking the router interfaces, the subnets etc..)
 but I'll skip that part in this blog post.
 
-We're going to asume that our external provider network is "public", with the
-subnet "public_subnet" and that the CIDR of such network is 192.168.1.0/24 with
-a gateway on *192.168.1.1*. Please excuse me because I'm not using the new
-openstack commands, I can make an updated post later if somebody is interested
-in that.
+> We're going to assume that our external provider network is "public", with the
+> subnet "public_subnet" and that the CIDR of such network is 192.168.1.0/24 with
+> a gateway on *192.168.1.1*. Please excuse me because I'm not using the new
+> openstack commands, I can make an updated post later if somebody is interested
+> in that.
 
 # Step by step
 
@@ -97,5 +97,10 @@ PING 10.222.0.3 (10.222.0.3) 56(84) bytes of data.
 64 bytes from 10.222.0.3: icmp_seq=1 ttl=63 time=0.621 ms
 64 bytes from 10.222.0.3: icmp_seq=2 ttl=63 time=0.298 ms
 ```
+
+Extra note, if you want to avoid issues with overlapping tenant network IPs, I
+recommend you to have a look at the [subnet pool functionality of
+neutron](https://docs.openstack.org/mitaka/networking-guide/config-subnet-pools.html)
+which started in Kilo.
 
 I hope you enjoyed it, and that this is helpful, let me know in the comments :)
