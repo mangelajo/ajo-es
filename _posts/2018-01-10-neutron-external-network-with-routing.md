@@ -10,6 +10,12 @@ In this blog post I will explain how to connect private tenant networks to
 an external network without the use of NAT or DNAT (floating ips) via
 a neutron router.
 
+With the following configuration you will have routers that don't do NAT
+on ingress or egress connections. You won't be able to use floating ips
+too, at least in the explained configuration, you could add a second external
+network and a gateway port, plus some static routes to let the router steer
+traffic over each network.
+
 This can be done, with just one limitation, tenant networks connected in
 such topology cannot have overlapping ips. And also, the upstream router(s)
 must be informed about the internal networks so they can add router themselves
@@ -53,8 +59,8 @@ Create a security group, and add an instance
 neutron security-group-create test
 neutron security-group-rule-create test --direction ingress
 
-nova boot --flavor m1.tiny --image cirros --nic net-id=$PRIV_NET
---security-group test cirros
+nova boot --flavor m1.tiny --image cirros --nic net-id=$PRIV_NET \
+          --security-group test cirros
 sleep 10
 nova console-log cirros
 ```
