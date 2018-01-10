@@ -6,6 +6,37 @@ tags:
 - openstack
 - neutron
 ---
+
+TO-DO, fix this blog post to explain "--disable-snat" that does the
+same, and probably also supports FIP (I need to check)
+
+```bash
+usage: neutron router-gateway-set [-h] [--request-format {json}]
+                                  [--disable-snat]
+                                  [--fixed-ip
+subnet_id=SUBNET,ip_address=IP_ADDR]
+                                  ROUTER EXTERNAL-NETWORK
+
+Set the external network gateway for a router.
+
+positional arguments:
+  ROUTER                ID or name of the router.
+  EXTERNAL-NETWORK      ID or name of the external network for the gateway.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --request-format {json}
+                        DEPRECATED! Only JSON request format is supported.
+  --disable-snat        Disable source NAT on the router gateway.
+  --fixed-ip subnet_id=SUBNET,ip_address=IP_ADDR
+                        Desired IP and/or subnet on external network:
+                        subnet_id=<name_or_id>,ip_address=<ip>. You can
+                        specify both of subnet_id and ip_address or specify
+                        one of them as well. You can repeat this option.
+```
+
+...
+
 In this blog post I will explain how to connect private tenant networks to
 an external network without the use of NAT or DNAT (floating ips) via
 a neutron router.
