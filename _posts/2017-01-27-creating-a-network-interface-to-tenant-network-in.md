@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Creating a network interface to tenant network in baremetal node (neutron)
-date: '2017-01-27T12:40:07+01:00''
+date: '2017-01-27T12:40:07+01:00'
 tags:
 - openstack
 - neutron
