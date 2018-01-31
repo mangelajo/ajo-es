@@ -24,6 +24,8 @@ Create the port in neutron
 
 ```bash
 PORT_ID=$(neutron port-create --device-owner compute:container \
+          --name test_interf0 $NETWORK_ID | awk '/ id / { print $4 }')
+
 PORT_MAC=$(neutron port-show $PORT_ID -f value -c mac_address)
 ```
 
@@ -54,7 +56,9 @@ ACTIVE
 ```
 
 Set MAC address and move the interface into a namespace
-(namespace is important if you’re using dhclient, otherwise the host-wide routes and DNS configuration of the host would be changed, you can omit the netns if you’re setting the IP address manually)
+(namespace is important if you're using dhclient, otherwise the host-wide routes
+and DNS configuration of the host would be changed, you can omit the netns if
+you're setting the IP address manually)
 
 
 ```bash
