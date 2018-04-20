@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Simplest openstack with networking-ovn deployment
-date: '2018-01-11'
+date: '2018-04-20'
 tags:
 - openstack
 ---
