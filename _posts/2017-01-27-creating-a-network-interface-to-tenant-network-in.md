@@ -44,7 +44,7 @@ ovs-vsctl -- --may-exist add-port br-int test_interf0 \
   -- set Interface test_interf0 type=internal \
   -- set Interface test_interf0 external-ids:iface-status=active \
   -- set Interface test_interf0 external-ids:attached-mac="$PORT_MAC" \
-  -- set Interface test_interf0 iface-id="$PORT_ID"
+  -- set Interface test_interf0 external-ids:iface-id="$PORT_ID"
 ```
 
 We can now see how neutron marked this port as ACTIVE
